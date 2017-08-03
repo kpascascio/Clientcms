@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 // Angular fire imports
 import { AngularFireModule } from 'angularfire2';
@@ -27,7 +28,8 @@ import { ClientService } from './services/client.service';
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'add-client', component: AddClientComponent}
 ];
 
 export const firebaseConfig = {
@@ -56,7 +58,8 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    FormsModule
   ],
   providers: [
     ClientService,

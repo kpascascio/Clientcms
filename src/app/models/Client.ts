@@ -4,5 +4,5 @@ export interface Client {
     lastname?: string;
     email?: string;
     phone?: string;
-    balance?: string;
+    balance?: number;
 }
