@@ -4,7 +4,7 @@ import { Settings } from '../models/settings';
 @Injectable()
 export class SettingsService {
   settings: Settings = {
-    allowRegistration: true,
+    allowRegistration: false,
     disableBalanceOnAdd: false,
     disableBalanceOnEdit: false
   };
