@@ -10,6 +10,7 @@ import { Client } from '../../models/Client';
 export class ClientsComponent implements OnInit {
   clients: Client[];
   totalOwed: number;
+  num = 4;
 
   constructor(public clientService: ClientService) {
 
@@ -18,6 +19,7 @@ export class ClientsComponent implements OnInit {
   ngOnInit() {
     this.clientService.getClients().subscribe(clients => {
       this.clients = clients;
+      console.log(typeof(clients[0].balance));
       this.getTotalOwed();
     });
   }
@@ -25,11 +27,13 @@ export class ClientsComponent implements OnInit {
   getTotalOwed() {
     let total = 0;
 
-    this.clients.forEach((value, key) => {
+    this.clients.forEach((value: Client, key) => {
+      console.log(typeof(value.balance));
 
-      total += value.balance;
+      total += Number(value.balance);
 
       this.totalOwed = total;
     });
+    console.log(this.totalOwed);
   }
 }
